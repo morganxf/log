@@ -3,6 +3,7 @@ package file
 import (
 	"fmt"
 	"github.com/morganxf/log/pkg/util"
+	"github.com/natefinch/lumberjack"
 	"github.com/sirupsen/logrus"
 	"os"
 	"path"
@@ -31,11 +32,18 @@ func NewHook(logDir string) *Hook {
 func (hook *Hook) InitLoggerMap() {
 	loggerMap := make(map[logrus.Level]*logrus.Logger)
 	for level, file := range LevelFile {
-		f, err := openFile(path.Join(hook.LogDir, file))
-		if err != nil {
-			continue
+		//f, err := openFile(path.Join(hook.LogDir, file))
+		//if err != nil {
+		//	continue
+		//}
+		//logger := util.NewLogger(f, level)
+		lumberjackLogger := &lumberjack.Logger{
+			Filename: path.Join(hook.LogDir, file),
+			MaxSize: 2,	// 100M
+			MaxBackups: 3,
+			MaxAge:     7,
 		}
-		logger := util.NewLogger(f, level)
+		logger := util.NewLogger(lumberjackLogger, level)
 		loggerMap[level] = logger
 	}
 	hook.LoggerMap = loggerMap
