@@ -1,0 +1,31 @@
+hash: b5ffd30dc1fd577bfff09c01157ac8babae02251fa23c5e75a9114f49d8e1d51
+updated: 2018-12-09T21:21:35.19695+08:00
+imports:
+- name: github.com/konsorten/go-windows-terminal-sequences
+  version: 5c8c8bd35d3832f5d134ae1e1e375b69a4d25242
+- name: github.com/natefinch/lumberjack
+  version: 7d6a1875575e09256dc552b4c0e450dcd02bd10e
+- name: github.com/sirupsen/logrus
+  version: bcd833dfe83d3cebad139e4a29ed79cb2318bf95
+- name: github.com/stretchr/testify
+  version: f35b8ab0b5a2cef36673838d662e249dd9c94686
+  subpackages:
+  - assert
+- name: golang.org/x/crypto
+  version: 505ab145d0a99da450461ae2c1a9f6cd10d1f447
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/sys
+  version: ad97f365e15054527b467150f898ec66d7f81e14
+  subpackages:
+  - unix
+  - windows
+testImports:
+- name: github.com/davecgh/go-spew
+  version: 8991bc29aa16c548c550c7ff78260e27b9ab7c73
+  subpackages:
+  - spew
+- name: github.com/pmezard/go-difflib
+  version: 792786c7400a136282c1664665ae0a8db921c6c2
+  subpackages:
+  - difflib
